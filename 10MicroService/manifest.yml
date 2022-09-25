@@ -1,0 +1,47 @@
+---
+applications:
+- name: springodata
+  path: ./springodata/target/07springodata-0.0.1-SNAPSHOT.war
+  routes:
+    - route: https://springodata-anubhav.cfapps.eu10.hana.ondemand.com
+  memory: 1024M
+  buildpacks:
+  - sap_java_buildpack
+  services:
+  - mysql
+  - myxsuaa
+  
+- name: NodeApp
+  buildpack: nodejs_buildpack
+  memory: 256M
+  routes:
+    - route: https://nodeapp-maranubhav.cfapps.eu10.hana.ondemand.com
+  timeout: 100
+  path: NodeApp
+  services:
+  - myxsuaa
+  - hana_container
+
+- name: approuter
+  buildpack: nodejs_buildpack
+  memory: 128M
+  routes:
+    - route: https://approuter-maranubhav.cfapps.eu10.hana.ondemand.com
+  timeout: 100
+  path: approuter
+  services:
+  - myxsuaa
+  env:
+    destinations: >
+      [
+        {
+          "name": "springodata",
+          "url": "https://springodata-anubhav.cfapps.eu10.hana.ondemand.com",
+          "forwardAuthToken": true
+        },
+        {
+          "name": "nodeapp",
+          "url": "https://nodeapp-maranubhav.cfapps.eu10.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]

@@ -1,0 +1,25 @@
+{
+  "name": "09nodemicroservice",
+  "version": "1.0.0",
+  "description": "Anubhav's first node project-microservice using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "node .",
+    "server": "node ./server.js"
+  },
+  "keywords": [
+    "node",
+    "basics",
+    "microservice",
+    "anubhav"
+  ],
+  "author": "anubhav oberoy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "welcomeFile": "ui/index.html",
+    "routes": [
+        {
+            "source": "^/java",
+            "target": "/",
+            "destination": "springodata"
+        },
+        {
+            "source": "^/node",
+            "target": "/",
+            "destination": "nodeapp"
+        },
+        {
+            "source": "^/ui/(.*)$",
+            "target": "$1",
+            "localDir": "resources"
+        }
+    ]
+}

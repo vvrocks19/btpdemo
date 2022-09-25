@@ -1,0 +1,2 @@
+insert into vendor(id, first_name, last_name, company_name, emailid, website, status, gst_no)
+values(1,'anubhav','oberoi','anubhav trainings','contact@anubhavtrainings.com','anubhavtrainings.com','A','anubhav')
